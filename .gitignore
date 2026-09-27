@@ -1,0 +1,5 @@
+.env
+venv/
+job_market_dbt/target/
+job_market_dbt/logs/
+job_market_dbt/dbt_packages/

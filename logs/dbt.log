@@ -1,0 +1,77 @@
+[0m18:22:37.942157 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DBE1DDDFD0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DBDF988B90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DBE47239D0>]}
+
+
+============================== 18:22:37.956477 | 67cc3676-142a-4f05-ac87-9073dfa667d1 ==============================
+[0m18:22:37.956477 [info ] [MainThread]: Running with dbt=1.12.4
+[0m18:22:37.958335 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'no_print': 'None', 'version_check': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'target_path': 'None', 'maximum_seed_size_mib': '1', 'printer_width': '80', 'write_json': 'True', 'introspect': 'True', 'log_cache_events': 'False', 'empty': 'None', 'cache_selected_only': 'False', 'fail_fast': 'False', 'debug': 'False', 'log_format': 'default', 'profiles_dir': 'C:\\Users\\nilak\\.dbt', 'send_anonymous_usage_stats': 'True', 'quiet': 'False', 'warn_error': 'None', 'partial_parse': 'True', 'indirect_selection': 'eager', 'hints_enabled': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'invocation_command': 'dbt init job_market_dbt', 'log_path': 'logs'}
+[0m18:22:38.031980 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\nilak\.dbt
+[0m18:22:38.038463 [debug] [MainThread]: Starter project path: C:\Users\nilak\job-market-pipeline\venv\Lib\site-packages\dbt\include\starter_project
+[0m18:22:38.106260 [info ] [MainThread]: Setting up your profile.
+[0m18:25:54.601249 [info ] [MainThread]: Profile job_market_dbt written to C:\Users\nilak\.dbt\profiles.yml using target's profile_template.yml and your supplied values.
+[0m18:25:54.610265 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m18:25:54.612729 [info ] [MainThread]: dbt version: 1.12.4
+[0m18:25:54.614113 [info ] [MainThread]: python version: 3.14.7
+[0m18:25:54.615824 [info ] [MainThread]: python path: C:\Users\nilak\job-market-pipeline\venv\Scripts\python.exe
+[0m18:25:54.617725 [info ] [MainThread]: os info: Windows-11-10.0.26200-SP0
+[0m18:25:54.766967 [info ] [MainThread]: Using profiles dir at C:\Users\nilak\.dbt
+[0m18:25:54.768985 [info ] [MainThread]: Using profiles.yml file at C:\Users\nilak\.dbt\profiles.yml
+[0m18:25:54.770443 [info ] [MainThread]: Using dbt_project.yml file at C:\Users\nilak\job-market-pipeline\job_market_dbt\dbt_project.yml
+[0m18:25:54.773849 [info ] [MainThread]: adapter type: postgres
+[0m18:25:54.775012 [info ] [MainThread]: adapter version: 1.11.0
+[0m18:25:55.047585 [info ] [MainThread]: Configuration:
+[0m18:25:55.048716 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m18:25:55.050179 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m18:25:55.051109 [info ] [MainThread]: Required dependencies:
+[0m18:25:55.052258 [debug] [MainThread]: Executing "git --help"
+[0m18:25:56.342106 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--no-lazy-fetch]\n           [--no-optional-locks] [--no-advice] [--bare] [--git-dir=<path>]\n           [--work-tree=<path>] [--namespace=<name>] [--config-env=<name>=<envvar>]\n           <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone      Clone a repository into a new directory\n   init       Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add        Add file contents to the index\n   mv         Move or rename a file, a directory, or a symlink\n   restore    Restore working tree files\n   rm         Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect     Use binary search to find the commit that introduced a bug\n   diff       Show changes between commits, commit and working tree, etc\n   grep       Print lines matching a pattern\n   log        Show commit logs\n   show       Show various types of objects\n   status     Show the working tree status\n\ngrow, mark and tweak your common history\n   backfill   Download missing objects in a partial clone\n   branch     List, create, or delete branches\n   commit     Record changes to the repository\n   history    EXPERIMENTAL: Rewrite history\n   merge      Join two or more development histories together\n   rebase     Reapply commits on top of another base tip\n   reset      Set `HEAD` or the index to a known state\n   switch     Switch branches\n   tag        Create, list, delete or verify tags\n\ncollaborate (see also: git help workflows)\n   fetch      Download objects and refs from another repository\n   pull       Fetch from and integrate with another repository or a local branch\n   push       Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m18:25:56.343230 [debug] [MainThread]: STDERR: "b''"
+[0m18:25:56.344126 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m18:25:56.345384 [info ] [MainThread]: Connection:
+[0m18:25:56.346661 [info ] [MainThread]:   host: localhost
+[0m18:25:56.348096 [info ] [MainThread]:   port: 5432
+[0m18:25:56.349401 [info ] [MainThread]:   user: nil
+[0m18:25:56.350548 [info ] [MainThread]:   database: job_market
+[0m18:25:56.351633 [info ] [MainThread]:   schema: analytics
+[0m18:25:56.352757 [info ] [MainThread]:   connect_timeout: 10
+[0m18:25:56.353867 [info ] [MainThread]:   role: None
+[0m18:25:56.354962 [info ] [MainThread]:   search_path: None
+[0m18:25:56.356058 [info ] [MainThread]:   keepalives_idle: 0
+[0m18:25:56.357159 [info ] [MainThread]:   sslmode: None
+[0m18:25:56.358243 [info ] [MainThread]:   sslcert: None
+[0m18:25:56.359320 [info ] [MainThread]:   sslkey: None
+[0m18:25:56.361300 [info ] [MainThread]:   sslrootcert: None
+[0m18:25:56.362783 [info ] [MainThread]:   application_name: dbt
+[0m18:25:56.364014 [info ] [MainThread]:   autocommit: False
+[0m18:25:56.365149 [info ] [MainThread]:   retries: 1
+[0m18:25:56.366813 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m18:25:57.000662 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m18:26:03.763959 [debug] [MainThread]: Using postgres connection "debug"
+[0m18:26:03.764799 [debug] [MainThread]: On debug: select 1 as id
+[0m18:26:03.765430 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m18:26:03.940540 [debug] [MainThread]: SQL status: SELECT 1 in 0.175 seconds
+[0m18:26:03.942763 [debug] [MainThread]: On debug: Close
+[0m18:26:03.943966 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m18:26:03.945831 [info ] [MainThread]: [32mAll checks passed![0m
+[0m18:26:03.947379 [info ] [MainThread]: Your new dbt project "job_market_dbt" was created!
+Initialized new project in C:\Users\nilak\job-market-pipeline\job_market_dbt\job_market_dbt
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m18:26:03.950526 [debug] [MainThread]: Command `dbt init` succeeded at 18:26:03.950176 after 206.75 seconds
+[0m18:26:03.951271 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m18:26:03.952041 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DBE4798640>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DBE4AF32F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001DBE2967350>]}
+[0m18:26:03.953544 [debug] [MainThread]: Flushing usage events
+[0m18:26:05.484873 [debug] [MainThread]: An error was encountered while trying to flush usage events

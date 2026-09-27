@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: job_market_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: nil
+      POSTGRES_PASSWORD: changeme123
+      POSTGRES_DB: job_market
+    ports:
+      - "5432:5432"
+    volumes:
+      - job_market_pgdata:/var/lib/postgresql/data
+
+volumes:
+  job_market_pgdata:
