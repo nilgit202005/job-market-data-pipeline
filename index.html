@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mapping the data analyst job market</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F3F5F0; --ink:#16241F; --ink-soft:#3E4E47; --line:#D8DCD2;
+  --amber:#B4791A; --amber-bg:#F0E3CB; --teal:#2F6F62; --teal-bg:#DCEAE4;
+  --card:#FBFCF9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12160F; --ink:#EDEFE8; --ink-soft:#A9B3A6; --line:#2A322A;
+    --amber:#E0AA4F; --amber-bg:#3A2E14; --teal:#6FBFAC; --teal-bg:#173A32;
+    --card:#171C15;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12160F; --ink:#EDEFE8; --ink-soft:#A9B3A6; --line:#2A322A;
+  --amber:#E0AA4F; --amber-bg:#3A2E14; --teal:#6FBFAC; --teal-bg:#173A32;
+  --card:#171C15;
+}
+*{box-sizing:border-box;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Inter',sans-serif; line-height:1.6;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+.wrap{max-width:640px; margin:0 auto; padding:4rem 1.5rem 6rem;}
+h1,h2{font-family:'Lora',serif; font-weight:600; margin:0;}
+h1{font-size:2rem; line-height:1.25;}
+h2{font-size:1.3rem; margin-bottom:1rem;}
+p{margin:.75rem 0;}
+.sub{color:var(--ink-soft); font-size:1.05rem; max-width:34em;}
+.stat{font-family:'Lora',serif; font-style:italic; font-weight:500; font-size:1.15rem; margin-top:1.5rem;}
+.stat b{font-style:normal; font-weight:600;}
+section{margin-top:3.5rem; padding-top:3rem; border-top:1px solid var(--line);}
+section:first-of-type{border-top:none; padding-top:0; margin-top:2.5rem;}
+.flow{display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin:1.5rem 0;}
+.step{background:var(--card); border:1px solid var(--line); border-radius:6px; padding:.6rem .9rem; font-family:'IBM Plex Mono',monospace; font-size:.8rem; color:var(--ink-soft);}
+.arrow{color:var(--line); font-size:1rem;}
+.bug{background:var(--card); border-left:3px solid var(--amber); border-radius:0 6px 6px 0; padding:1rem 1.2rem; margin:1.2rem 0; font-size:.95rem;}
+.bug b{color:var(--amber);}
+.chart{margin:1.5rem 0;}
+.row{display:grid; grid-template-columns:9rem 1fr 3.2rem; align-items:center; gap:.6rem; margin:.45rem 0; font-size:.85rem;}
+.row .label{font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); text-align:right;}
+.row .track{background:var(--line); border-radius:3px; height:10px; overflow:hidden;}
+.row .fill{height:100%; border-radius:3px;}
+.c-amber .fill{background:var(--amber);}
+.c-teal .fill{background:var(--teal);}
+.row .val{font-family:'IBM Plex Mono',monospace; color:var(--ink-soft); font-size:.8rem;}
+.tags{display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1rem;}
+.tag{background:var(--card); border:1px solid var(--line); border-radius:5px; padding:.35rem .7rem; font-family:'IBM Plex Mono',monospace; font-size:.78rem; color:var(--ink-soft);}
+footer{margin-top:3.5rem; padding-top:2rem; border-top:1px solid var(--line); color:var(--ink-soft); font-size:.9rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section>
+<h1>Mapping the data analyst job market</h1>
+<p class="sub">A solo-built pipeline that pulls live job postings from a public API, cleans and models them, and turns them into a dashboard of in-demand skills and real salary ranges &mdash; across India, the UK, and the US.</p>
+<p class="stat"><b>300+</b> postings analyzed &middot; <b>3</b> countries &middot; <b>24</b> skills tracked</p>
+</section>
+
+<section>
+<h2>How it works</h2>
+<p class="sub">Five stages, each one doing a specific job &mdash; extract, store, clean, and visualize.</p>
+<div class="flow">
+  <span class="step">Adzuna API</span><span class="arrow">&rarr;</span>
+  <span class="step">Python</span><span class="arrow">&rarr;</span>
+  <span class="step">Postgres (Docker)</span><span class="arrow">&rarr;</span>
+  <span class="step">dbt</span><span class="arrow">&rarr;</span>
+  <span class="step">Power BI</span>
+</div>
+<p>Postings are fetched by country and role, loaded raw into Postgres, then modeled with dbt into two clean tables &mdash; one for skill mentions, one for salary by role. Power BI reads directly from the warehouse.</p>
+
+<div class="bug"><b>Caught along the way:</b> an early skills query matched the letter &ldquo;R&rdquo; inside words like &ldquo;for&rdquo; and &ldquo;your&rdquo;, inflating its count 50&times;. Fixed with word-boundary matching. A second pass caught salaries from three currencies being compared without conversion &mdash; normalized everything to USD before it reached the dashboard.</p>
+</section>
+
+<section>
+<h2>What&rsquo;s in demand</h2>
+<p class="sub">Skill mentions across all analyzed postings.</p>
+<div class="chart">
+  <div class="row c-amber"><span class="label">SQL</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="val">33</span></div>
+  <div class="row c-amber"><span class="label">Power BI</span><div class="track"><div class="fill" style="width:85%"></div></div><span class="val">28</span></div>
+  <div class="row c-amber"><span class="label">Python</span><div class="track"><div class="fill" style="width:36%"></div></div><span class="val">12</span></div>
+  <div class="row c-amber"><span class="label">Excel</span><div class="track"><div class="fill" style="width:30%"></div></div><span class="val">10</span></div>
+  <div class="row c-amber"><span class="label">Tableau</span><div class="track"><div class="fill" style="width:27%"></div></div><span class="val">9</span></div>
+  <div class="row c-amber"><span class="label">R</span><div class="track"><div class="fill" style="width:18%"></div></div><span class="val">6</span></div>
+</div>
+</section>
+
+<section>
+<h2>What it pays</h2>
+<p class="sub">Top roles by average salary, normalized to USD (postings with listed salary only).</p>
+<div class="chart">
+  <div class="row c-teal"><span class="label">Principal Analyst</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="val">$171.7k</span></div>
+  <div class="row c-teal"><span class="label">Assoc. Director</span><div class="track"><div class="fill" style="width:99%"></div></div><span class="val">$171.3k</span></div>
+  <div class="row c-teal"><span class="label">Data Analyst II</span><div class="track"><div class="fill" style="width:76%"></div></div><span class="val">$130.4k</span></div>
+  <div class="row c-teal"><span class="label">Senior Analyst</span><div class="track"><div class="fill" style="width:76%"></div></div><span class="val">$130.4k</span></div>
+  <div class="row c-teal"><span class="label">Forensic Analyst</span><div class="track"><div class="fill" style="width:73%"></div></div><span class="val">$125.1k</span></div>
+  <div class="row c-teal"><span class="label">Risk Analyst</span><div class="track"><div class="fill" style="width:70%"></div></div><span class="val">$120.0k</span></div>
+</div>
+</section>
+
+<section>
+<h2>Built with</h2>
+<div class="tags">
+  <span class="tag">Adzuna API</span>
+  <span class="tag">Python</span>
+  <span class="tag">Docker</span>
+  <span class="tag">PostgreSQL</span>
+  <span class="tag">dbt</span>
+  <span class="tag">Power BI</span>
+</div>
+</section>
+
+<footer>
+Built solo, end to end &mdash; extraction to dashboard. Code and full writeup on GitHub (link coming soon).
+</footer>
+
+</div>
+</body>
+</html>
